@@ -240,6 +240,11 @@ type PullRequest struct {
 	// background job was started to compute it. When the job is complete, the response
 	// will include a non-null value for the mergeable attribute.
 	Mergable *bool `json:"mergeable,omitempty"`
+	// ref https://github.community/t5/GitHub-API-Development-and/PullRequest-mergeable-state-possible-values/td-p/21943
+	// The value of the mergable_state attribute can be dirty, unknown, blocked, behind,
+	// unstable, has_hooks or clean. Fore more information see the ref link above.
+	MergeableState string  `json:"mergeable_state"`
+	Labels         []Label `json:"labels"`
 }
 
 // PullRequestBranch contains information about a particular branch in a PR.
